@@ -1,4 +1,4 @@
-FROM inanimate/steamcmd-play
+FROM tylerstaut/source-servers
 
 ENV GAME_NAME csgo
 ENV GAME_ID 740
@@ -12,4 +12,3 @@ WORKDIR ${GAME_PATH}
 ENTRYPOINT ["./srcds_run", "-game csgo"]
 
 CMD ["+sv_lan", "1", "+map", "de_mirage"]
-

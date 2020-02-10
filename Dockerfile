@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 
 ENV RUNUSER daemon
 ENV DAEMON_HOME /home/${RUNUSER}

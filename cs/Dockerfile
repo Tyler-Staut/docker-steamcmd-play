@@ -1,4 +1,4 @@
-FROM inanimate/steamcmd-play
+FROM tylerstaut/source-servers
 
 ENV GAME_NAME cstrike
 ENV GAME_ID 90
@@ -15,4 +15,3 @@ RUN while :;\
 WORKDIR ${GAME_PATH}
 
 ENTRYPOINT ["./hlds_run", "-game cstrike"]
-

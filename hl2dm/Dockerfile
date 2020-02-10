@@ -1,4 +1,4 @@
-FROM inanimate/steamcmd-play
+FROM tylerstaut/source-servers
 
 ENV GAME_NAME hl2mp
 ENV GAME_ID 232370

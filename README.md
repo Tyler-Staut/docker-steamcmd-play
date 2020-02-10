@@ -1,8 +1,7 @@
-
 ### It's frag time!
 
-This repository aims to provide *ready to play* dedicated server docker images for the most popular Valve games.
-A mere `docker run -d -p 27000-27015:27000-27015/udp -p 27015:27015 inanimate/steamcmd-play:css` will launch a *Counter-Strike: Source* dedicated server ready for you and your friends to join.
+This repository aims to provide _ready to play_ dedicated server docker images for the most popular Valve games.
+A mere `docker run -d -p 27000-27015:27000-27015/udp -p 27015:27015 tylerstaut/source-servers:css` will launch a _Counter-Strike: Source_ dedicated server ready for you and your friends to join.
 
 > **Note**: This project is still a WIP. Most games should work just as intended/documented, but some may not. Please open an issue or submit a pull request if you find problems! Thanks!
 
@@ -10,22 +9,22 @@ A mere `docker run -d -p 27000-27015:27000-27015/udp -p 27015:27015 inanimate/st
 
 The following table shows a list of the currently generated images. The first two column's are all you need to know to pick your Friday Night Delight :)
 
-| Game Name                        | Tag Name  | Engine | [Launch Name](https://developer.valvesoftware.com/wiki/Dedicated_Server_Name_Enumeration) | [App ID](https://developer.valvesoftware.com/wiki/Dedicated_Servers_List) |
-|----------------------------------|-----------|--------|-------------|--------|
-| Counter-Strike: Global Offensive | *csgo*      | Source | csgo        | 740    |
-| Counter-Strike: Source           | *css*       | Source | cstrike     | 232330 |
-| Day of Defeat: Source            | *dods*      | Source | dod         | 232290 |
-| Garry's Mod                      | *garrysmod* | Source | garrysmod   | 4020   |
-| Half-Life 2: Deathmatch          | *hl2dm*     | Source | hl2mp       | 232370 |
-| Half-Life Deathmatch: Source     | *hldms*     | Source | hl1mp       | 255470 |
-| Left 4 Dead 2                    | *l4d2*      | Source | left4dead2  | 222860 |
-| Left 4 Dead                      | *l4d*       | Source | left4dead   | 222840 |
-| Team Fortress 2                  | *tf2*       | Source | tf          | 232250 |
+| Game Name                        | Tag Name    | Engine | [Launch Name](https://developer.valvesoftware.com/wiki/Dedicated_Server_Name_Enumeration) | [App ID](https://developer.valvesoftware.com/wiki/Dedicated_Servers_List) |
+| -------------------------------- | ----------- | ------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Counter-Strike: Global Offensive | _csgo_      | Source | csgo                                                                                      | 740                                                                       |
+| Counter-Strike: Source           | _css_       | Source | cstrike                                                                                   | 232330                                                                    |
+| Day of Defeat: Source            | _dods_      | Source | dod                                                                                       | 232290                                                                    |
+| Garry's Mod                      | _garrysmod_ | Source | garrysmod                                                                                 | 4020                                                                      |
+| Half-Life 2: Deathmatch          | _hl2dm_     | Source | hl2mp                                                                                     | 232370                                                                    |
+| Half-Life Deathmatch: Source     | _hldms_     | Source | hl1mp                                                                                     | 255470                                                                    |
+| Left 4 Dead 2                    | _l4d2_      | Source | left4dead2                                                                                | 222860                                                                    |
+| Left 4 Dead                      | _l4d_       | Source | left4dead                                                                                 | 222840                                                                    |
+| Team Fortress 2                  | _tf2_       | Source | tf                                                                                        | 232250                                                                    |
 
-All you need to do is select the game you want to host, find it's associated tag, and: 
+All you need to do is select the game you want to host, find it's associated tag, and:
 
 ```
-docker run -d -p 27000-27015:27000-27015/udp -p 27015:27015 inanimate/steamcmd-play:<tag>
+docker run -d -p 27000-27015:27000-27015/udp -p 27015:27015 tylerstaut/source-servers:<tag>
 ```
 
 The container will then launch, the dedicated server will start, and you're ready to join up, suit up, and fight!
@@ -37,11 +36,11 @@ The container will then launch, the dedicated server will start, and you're read
 Because `srcds` is pretty awesome, you can easily pass command line [options](https://developer.valvesoftware.com/wiki/Command_Line_Options#Source_Dedicated_Server) to the server daemon. Here are a few useful examples:
 
 ```
-docker run -p 27000-27015:27000-27015/udp -p 27015:27015 -d inanimate/steamcmd-play:css +sv_lan 1 +map de_dust2 +rcon_password awesomepassword
+docker run -p 27000-27015:27000-27015/udp -p 27015:27015 -d tylerstaut/source-servers:css +sv_lan 1 +map de_dust2 +rcon_password awesomepassword
 ```
 
 ```
-docker run -p 27000-27015:27000-27015/udp -p 27015:27015 -d inanimate/steamcmd-play:css +sv_lan 1 +map de_dust2 +rcon_password lolcakes +maxplayers 6 +hostname "SuperCool CSS Server"
+docker run -p 27000-27015:27000-27015/udp -p 27015:27015 -d tylerstaut/source-servers:css +sv_lan 1 +map de_dust2 +rcon_password lolcakes +maxplayers 6 +hostname "SuperCool CSS Server"
 ```
 
 > Keep in mind when you define your own options, they replace the default CMD I configured for you in the Dockerfile!
@@ -51,11 +50,11 @@ docker run -p 27000-27015:27000-27015/udp -p 27015:27015 -d inanimate/steamcmd-p
 Basically, I generate a base container (with steamcmd) that specific game Dockerfile's inherit from. I then set the necessary variables in each game specific Dockerfile and an image gets built downloading the necessary data from Steam.
 After that, I ensure to set a baseline config by providing the bare minimum options via the proper launch command to ensure the server is ready to join on container launch.
 
-### Other *ready to play* games?
+### Other _ready to play_ games?
 
 I've found, forked, and tuned other popular games in docker image form!
 
-* [Quake II](https://github.com/InAnimaTe/docker-quake2)
-* [Quake III Arena](https://github.com/InAnimaTe/docker-quake3)
-* [Battlefield 1942](https://github.com/InAnimaTe/docker-battlefield1942)
-* [Counter-Strike 1.6](https://github.com/skarademir/cs16_server)
+- [Quake II](https://github.com/InAnimaTe/docker-quake2)
+- [Quake III Arena](https://github.com/InAnimaTe/docker-quake3)
+- [Battlefield 1942](https://github.com/InAnimaTe/docker-battlefield1942)
+- [Counter-Strike 1.6](https://github.com/skarademir/cs16_server)

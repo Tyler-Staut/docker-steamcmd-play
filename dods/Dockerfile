@@ -1,4 +1,4 @@
-FROM inanimate/steamcmd-play
+FROM tylerstaut/source-servers
 
 ENV GAME_NAME dod
 ENV GAME_ID 232290
