@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM ubuntu:latest
 
 ENV RUNUSER steam
 ENV DAEMON_HOME /home/${RUNUSER}
@@ -7,12 +7,12 @@ ENV STEAMCMD ${STEAMCMD_LOC}/steamcmd.sh
 
 # create user for steam
 RUN adduser \
-    --home /home/steam \
+    --home /home/${RUNUSER} \
     --disabled-password \
     --shell /bin/bash \
     --gecos "user for running steam" \
     --quiet \
-    steam
+    ${RUNUSER}
 
 # install dependencies
 RUN apt-get update && \
