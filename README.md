@@ -20,6 +20,7 @@ The following table shows a list of the currently generated images. The first tw
 | Left 4 Dead 2                    | _l4d2_      | Source | left4dead2                                                                                | 222860                                                                    |
 | Left 4 Dead                      | _l4d_       | Source | left4dead                                                                                 | 222840                                                                    |
 | Team Fortress 2                  | _tf2_       | Source | tf                                                                                        | 232250                                                                    |
+| GoldenEye: Source                | _gesource_  | Source | gesource                                                                                  | 310                                                                       |
 
 All you need to do is select the game you want to host, find it's associated tag, and:
 
