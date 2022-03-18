@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 ENV RUNUSER steam
 ENV DAEMON_HOME /home/${RUNUSER}
