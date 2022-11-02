@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:kinetic-20220830
 
 ENV RUNUSER steam
 ENV DAEMON_HOME /home/${RUNUSER}
